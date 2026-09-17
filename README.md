@@ -12,9 +12,6 @@ two people who can actually do something about it on Beacon Hill.
 - Click the map, or search an address, or use your current location.
 - Shows the sitting State Rep and State Senator for that point: photo, party,
   district, email, phone, State House room, and a link to their profile.
-- **Draft a message to both** opens a pre-filled email with the location,
-  coordinates, a Google Maps link, and both district names — ready to
-  describe the actual issue.
 - **Copy link** produces a `?lat=&lng=` URL that reopens that exact spot, so
   you can hand someone the pothole.
 - Three base maps (Streets, Satellite, Light) via Esri's free tile services.

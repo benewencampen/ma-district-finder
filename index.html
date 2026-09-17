@@ -158,7 +158,7 @@
         <ol>
           <li>Find the pothole, the intersection, the parcel &mdash; whatever the issue is.</li>
           <li>Click it. Districts are matched to the point, not the town.</li>
-          <li>Get the State Rep and State Senator, with contact details and a ready-to-send message.</li>
+          <li>Get the State Rep and State Senator, with contact details to reach them yourself.</li>
         </ol>
       </div>
     </aside>
@@ -399,13 +399,11 @@
       ${cardHTML('house', 'State Representative', state.house)}
       ${cardHTML('senate', 'State Senator', state.senate)}
       <div class="actions">
-        <button type="button" id="draft" class="primary">Draft a message to both</button>
-        <button type="button" id="copy">Copy details</button>
+        <button type="button" id="copy" class="primary">Copy details</button>
         <button type="button" id="share">Copy link</button>
       </div>
       ${FOOTER}`;
 
-    document.getElementById('draft').onclick = draftEmail;
     document.getElementById('copy').onclick = copyDetails;
     document.getElementById('share').onclick = copyLink;
   }
@@ -456,37 +454,6 @@
       legLine(s.senate, 'State Senator'),
       `Map: ${shareURL()}`
     ].filter(Boolean).join('\n');
-  }
-
-  function draftEmail() {
-    const s = current;
-    const to = [s.house, s.senate]
-      .map(f => f && f.properties.legislator && f.properties.legislator.email)
-      .filter(Boolean).join(',');
-    const where = s.label || `${s.lat.toFixed(5)}, ${s.lng.toFixed(5)}`;
-    const body = [
-      'Dear Representative and Senator,',
-      '',
-      `I am a constituent writing about a problem at ${where}.`,
-      '',
-      '[Describe the issue here — what it is, how long it has been there, and what you are asking for.]',
-      '',
-      'Exact location details:',
-      `  Coordinates: ${s.lat.toFixed(6)}, ${s.lng.toFixed(6)}`,
-      `  Google Maps: https://www.google.com/maps?q=${s.lat.toFixed(6)},${s.lng.toFixed(6)}`,
-      s.house ? `  State House district: ${s.house.properties.district}` : null,
-      s.senate ? `  State Senate district: ${s.senate.properties.district}` : null,
-      '',
-      'Thank you for your time.',
-      '',
-      '[Your name]',
-      '[Your street address — this shows you live in the district]'
-    ].filter(Boolean).join('\n');
-
-    const href = `mailto:${to}?subject=${encodeURIComponent('Constituent issue at ' + where)}`
-      + `&body=${encodeURIComponent(body)}`;
-    if (!to) { toast('No email on file — use Copy details instead'); return; }
-    window.location.href = href;
   }
 
   function shareURL() {
