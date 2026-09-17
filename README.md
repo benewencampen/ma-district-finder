@@ -5,7 +5,7 @@ Senator for that exact point — not the town, the point. Built for reporting a
 specific problem (a pothole, a broken guardrail, a flooded underpass) to the
 two people who can actually do something about it on Beacon Hill.
 
-**[Open the tool](#)** — replace with the live GitHub Pages URL once enabled.
+**[Open the tool](https://benewencampen.github.io/ma-district-finder/)**
 
 ## What it does
 
