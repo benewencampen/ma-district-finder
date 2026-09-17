@@ -1,0 +1,13 @@
+# Intermediate/raw data pulled by build/fetch_sources.sh and build/fetch_members.py.
+# Regenerate with build/rebuild.sh — not committed so the repo doesn't carry a
+# second, easily-stale copy of what's already baked into index.html.
+build/fine_1.geojson
+build/fine_2.geojson
+build/ma_legislative_data.json
+build/ma_people.csv
+build/mem194.json
+build/members_detail.json
+
+.DS_Store
+__pycache__/
+*.pyc
